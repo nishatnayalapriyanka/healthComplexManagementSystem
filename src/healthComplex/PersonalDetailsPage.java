@@ -27,21 +27,86 @@ public class PersonalDetailsPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
+        lblSearchBox = new javax.swing.JLabel();
+        txtSearchBox = new javax.swing.JTextField();
+        btSearchBox = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPersonalDetails = new javax.swing.JTable();
+        btBack = new javax.swing.JButton();
+        btReset = new javax.swing.JButton();
+        lblWelcomePageBackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblBangladeshHealthComplexMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblBangladeshHealthComplexMsg.setText("Bangladesh Health Complex");
+        getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 620, 100));
+
+        lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblSearchBox.setForeground(new java.awt.Color(153, 153, 153));
+        lblSearchBox.setText("Patient's Id");
+        getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 130, 40));
+
+        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 360, 40));
+
+        btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
+        getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 40, 40));
+
+        tblPersonalDetails.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        tblPersonalDetails.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patients Id", "Name", "Age", "Gender", "Phone No", "Email"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPersonalDetails);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 930, 120));
+
+        btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/back logo.png"))); // NOI18N
+        btBack.setText("Back");
+        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 570, 170, 50));
+
+        btReset.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/reset logo.png"))); // NOI18N
+        btReset.setText("Reset");
+        getContentPane().add(btReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 170, 50));
+
+        lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
+        lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lblWelcomePageBackgroundFocusGained(evt);
+            }
+        });
+        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchBoxActionPerformed
+
+    private void lblWelcomePageBackgroundFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblWelcomePageBackgroundFocusGained
+        lblUserID.setVisible(false);
+        if(txtUserID.getText().isEmpty()){
+            lblUserID.setVisible(true);
+        }
+        lblPassword.setVisible(false);
+        if(txtPassword.getText().isEmpty()){
+            lblPassword.setVisible(true);
+        }
+    }//GEN-LAST:event_lblWelcomePageBackgroundFocusGained
 
     /**
      * @param args the command line arguments
@@ -55,7 +120,7 @@ public class PersonalDetailsPage extends javax.swing.JFrame {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    javax.swing.UIManager.setLookAndFeeltblPersonalDetailsetClassName());
                     break;
                 }
             }
@@ -79,5 +144,14 @@ public class PersonalDetailsPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBack;
+    private javax.swing.JButton btReset;
+    private javax.swing.JButton btSearchBox;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBangladeshHealthComplexMsg;
+    private javax.swing.JLabel lblSearchBox;
+    private javax.swing.JLabel lblWelcomePageBackground;
+    private javax.swing.JTable tblPersonalDetails;
+    private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 }
