@@ -27,13 +27,45 @@ public class ManageInformationPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblMedicalRecord1 = new javax.swing.JLabel();
+        lblOperationName = new javax.swing.JLabel();
+        lblSurgeonsFirstName = new javax.swing.JLabel();
+        lblSurgeonslastName = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        txtOperationName = new javax.swing.JTextField();
+        txtSurgeonFirstName = new javax.swing.JTextField();
+        txtSurgeonLastName = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         lblMedicalRecord2 = new javax.swing.JLabel();
+        lblDoctorFees = new javax.swing.JLabel();
+        lblMedicineFees = new javax.swing.JLabel();
+        lblWardCost = new javax.swing.JLabel();
+        lblOperationCost = new javax.swing.JLabel();
+        lblPaidAmount = new javax.swing.JLabel();
+        lblTotalCost = new javax.swing.JLabel();
+        lblDueAmount = new javax.swing.JLabel();
+        txtDoctorFees = new javax.swing.JTextField();
+        txtMedicineFees = new javax.swing.JTextField();
+        txtWardCost = new javax.swing.JTextField();
+        txtOperationCost = new javax.swing.JTextField();
+        txtPaidAmount = new javax.swing.JTextField();
+        txtTotalCost = new javax.swing.JTextField();
+        txtDueAmount = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         lblMedicalRecord = new javax.swing.JLabel();
+        lblDoctorFirstName = new javax.swing.JLabel();
+        lblDoctorLastName = new javax.swing.JLabel();
+        lblProblem = new javax.swing.JLabel();
+        lblMedicine = new javax.swing.JLabel();
+        lblWardNo = new javax.swing.JLabel();
+        txtDoctorFirstName = new javax.swing.JTextField();
+        txtDoctorLastName = new javax.swing.JTextField();
+        txtMedicine = new javax.swing.JTextField();
+        txtProblem = new javax.swing.JTextField();
+        txtWardNo = new javax.swing.JTextField();
         panelPersonalInformation = new javax.swing.JPanel();
         lblPersonalInformation = new javax.swing.JLabel();
         lblPatientFirstName = new javax.swing.JLabel();
@@ -61,6 +93,8 @@ public class ManageInformationPage extends javax.swing.JFrame {
         btClear = new javax.swing.JButton();
         lblWelcomePageBackground = new javax.swing.JLabel();
 
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,72 +107,291 @@ public class ManageInformationPage extends javax.swing.JFrame {
         lblMedicalRecord1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         lblMedicalRecord1.setText("Operation Details");
 
+        lblOperationName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblOperationName.setText("Operation Name");
+
+        lblSurgeonsFirstName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblSurgeonsFirstName.setText("Surgeons First Name");
+
+        lblSurgeonslastName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblSurgeonslastName.setText("Surgeons Last Name");
+
+        lblDate.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDate.setText("Date");
+
+        txtOperationName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtSurgeonFirstName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtSurgeonLastName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(lblMedicalRecord1)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(lblMedicalRecord1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDate, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblSurgeonslastName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSurgeonsFirstName)
+                                    .addComponent(lblOperationName))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOperationName, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMedicalRecord1)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOperationName)
+                    .addComponent(txtOperationName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSurgeonsFirstName)
+                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSurgeonslastName)
+                    .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDate)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 300, 180));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 300, 180));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
         lblMedicalRecord2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         lblMedicalRecord2.setText("Payment Details");
 
+        lblDoctorFees.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDoctorFees.setText("Doctor Fees");
+
+        lblMedicineFees.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblMedicineFees.setText("Medicine Fees");
+
+        lblWardCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblWardCost.setText("Ward Cost");
+
+        lblOperationCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblOperationCost.setText("Operation Cost");
+
+        lblPaidAmount.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblPaidAmount.setText("Paid Amount");
+
+        lblTotalCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblTotalCost.setText("Total Cost");
+
+        lblDueAmount.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDueAmount.setText("Due Amount");
+
+        txtDoctorFees.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtMedicineFees.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtWardCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtOperationCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtPaidAmount.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtTotalCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtDueAmount.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(lblMedicalRecord2)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(lblMedicalRecord2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblOperationCost)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtOperationCost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblWardCost)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtWardCost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMedicineFees)
+                                    .addComponent(lblDoctorFees))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMedicineFees, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtDoctorFees)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblPaidAmount)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTotalCost)
+                                    .addComponent(lblDueAmount))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDueAmount)
+                                    .addComponent(txtTotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(8, 8, 8)
                 .addComponent(lblMedicalRecord2)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctorFees)
+                    .addComponent(txtDoctorFees, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMedicineFees)
+                    .addComponent(txtMedicineFees, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWardCost)
+                    .addComponent(txtWardCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOperationCost)
+                    .addComponent(txtOperationCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPaidAmount)
+                    .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalCost)
+                    .addComponent(txtTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDueAmount)
+                    .addComponent(txtDueAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 310, 250));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 310, 260));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
         lblMedicalRecord.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         lblMedicalRecord.setText("Medical Record");
 
+        lblDoctorFirstName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDoctorFirstName.setText("Doctors First Name");
+
+        lblDoctorLastName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDoctorLastName.setText("Doctors Last Name");
+
+        lblProblem.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblProblem.setText("Problem");
+
+        lblMedicine.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblMedicine.setText("Medicine");
+
+        lblWardNo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblWardNo.setText("Ward No");
+
+        txtDoctorFirstName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtDoctorLastName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtMedicine.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtProblem.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        txtWardNo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(lblMedicalRecord)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDoctorLastName)
+                            .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtProblem)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblWardNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblMedicine, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lblMedicalRecord)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMedicalRecord)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctorFirstName)
+                    .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDoctorLastName))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProblem)
+                    .addComponent(txtProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMedicine)
+                    .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWardNo)
+                    .addComponent(txtWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 300, 250));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 300, 260));
 
         panelPersonalInformation.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -197,7 +450,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                         .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                                 .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                                 .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,13 +464,15 @@ public class ManageInformationPage extends javax.swing.JFrame {
                                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtlAge, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelPersonalInformationLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(RbtMale)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbtFemale))))))
+                                        .addComponent(rbtFemale))
+                                    .addGroup(panelPersonalInformationLayout.createSequentialGroup()
+                                        .addGap(67, 67, 67)
+                                        .addComponent(txtlAge))))))
                     .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,11 +483,12 @@ public class ManageInformationPage extends javax.swing.JFrame {
                             .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                                 .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelPersonalInformationLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(lblPersonalInformation)))
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPersonalInformationLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblPersonalInformation)
+                .addGap(38, 38, 38))
         );
         panelPersonalInformationLayout.setVerticalGroup(
             panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,10 +525,10 @@ public class ManageInformationPage extends javax.swing.JFrame {
                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 250));
+        getContentPane().add(panelPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 260));
 
         btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
         getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 40, 40));
@@ -285,7 +541,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         lblNoteMsg.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblNoteMsg.setText("Note : If you don't have any informatoin then fill none and zero for payment ");
-        getContentPane().add(lblNoteMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, -1));
+        getContentPane().add(lblNoteMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         btAdd.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btAdd.setText("Add");
@@ -372,29 +628,61 @@ public class ManageInformationPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBangladeshHealthComplexMsg;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDoctorFees;
+    private javax.swing.JLabel lblDoctorFirstName;
+    private javax.swing.JLabel lblDoctorLastName;
+    private javax.swing.JLabel lblDueAmount;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblMedicalRecord;
     private javax.swing.JLabel lblMedicalRecord1;
     private javax.swing.JLabel lblMedicalRecord2;
+    private javax.swing.JLabel lblMedicine;
+    private javax.swing.JLabel lblMedicineFees;
     private javax.swing.JLabel lblNoteMsg;
+    private javax.swing.JLabel lblOperationCost;
+    private javax.swing.JLabel lblOperationName;
+    private javax.swing.JLabel lblPaidAmount;
     private javax.swing.JLabel lblPatientFirstName;
     private javax.swing.JLabel lblPatientLastName;
     private javax.swing.JLabel lblPersonalInformation;
     private javax.swing.JLabel lblPhoneNumber;
+    private javax.swing.JLabel lblProblem;
     private javax.swing.JLabel lblSearchBox;
+    private javax.swing.JLabel lblSurgeonsFirstName;
+    private javax.swing.JLabel lblSurgeonslastName;
+    private javax.swing.JLabel lblTotalCost;
+    private javax.swing.JLabel lblWardCost;
+    private javax.swing.JLabel lblWardNo;
     private javax.swing.JLabel lblWelcomePageBackground;
     private javax.swing.JPanel panelPersonalInformation;
     private javax.swing.JRadioButton rbtFemale;
+    private javax.swing.JTextField txtDoctorFees;
+    private javax.swing.JTextField txtDoctorFirstName;
+    private javax.swing.JTextField txtDoctorLastName;
+    private javax.swing.JTextField txtDueAmount;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtMedicine;
+    private javax.swing.JTextField txtMedicineFees;
+    private javax.swing.JTextField txtOperationCost;
+    private javax.swing.JTextField txtOperationName;
+    private javax.swing.JTextField txtPaidAmount;
     private javax.swing.JTextField txtPatientFirstName;
     private javax.swing.JTextField txtPatientLastName;
     private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtProblem;
     private javax.swing.JTextField txtSearchBox;
+    private javax.swing.JTextField txtSurgeonFirstName;
+    private javax.swing.JTextField txtSurgeonLastName;
+    private javax.swing.JTextField txtTotalCost;
+    private javax.swing.JTextField txtWardCost;
+    private javax.swing.JTextField txtWardNo;
     private javax.swing.JTextField txtlAge;
     // End of variables declaration//GEN-END:variables
 }
