@@ -53,7 +53,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="460" width="300" height="180"/>
+          <AbsoluteConstraints x="20" y="460" width="310" height="180"/>
         </Constraint>
       </Constraints>
 
@@ -192,7 +192,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="670" y="180" width="310" height="260"/>
+          <AbsoluteConstraints x="670" y="160" width="310" height="260"/>
         </Constraint>
       </Constraints>
 
@@ -297,7 +297,7 @@
                       <Component id="lblDueAmount" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDueAmount" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -426,7 +426,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="350" y="180" width="300" height="260"/>
+          <AbsoluteConstraints x="350" y="160" width="300" height="260"/>
         </Constraint>
       </Constraints>
 
@@ -438,32 +438,34 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDoctorFirstName" min="-2" pref="159" max="-2" attributes="0"/>
-                              <Component id="lblDoctorLastName" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="lblProblem" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtDoctorLastName" max="32767" attributes="0"/>
-                              <Component id="txtDoctorFirstName" pref="100" max="32767" attributes="0"/>
-                              <Component id="txtProblem" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblDoctorFirstName" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtDoctorFirstName" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblDoctorLastName" pref="153" max="32767" attributes="0"/>
+                                      <Component id="lblProblem" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtDoctorLastName" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="txtProblem" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="txtMedicine" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lblWardNo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblMedicine" alignment="0" pref="143" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="txtMedicine" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblWardNo" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="txtWardNo" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="lblMedicine" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -471,7 +473,7 @@
                           <Component id="lblMedicalRecord" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -505,7 +507,7 @@
                       <Component id="lblWardNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtWardNo" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -604,7 +606,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="180" width="310" height="260"/>
+          <AbsoluteConstraints x="20" y="160" width="310" height="260"/>
         </Constraint>
       </Constraints>
 
@@ -616,7 +618,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblPhoneNumber" min="-2" pref="127" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                           <Component id="txtPhoneNumber" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -642,7 +644,7 @@
                                   <Component id="rbtFemale" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   <Component id="txtlAge" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -688,9 +690,9 @@
                       <Component id="txtPatientLastName" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAge" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="txtlAge" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblAge" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="txtlAge" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -710,7 +712,7 @@
                       <Component id="lblEmail" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

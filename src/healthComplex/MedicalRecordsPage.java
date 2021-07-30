@@ -83,11 +83,6 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
         getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 570, 170, 50));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
-        lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                lblWelcomePageBackgroundFocusGained(evt);
-            }
-        });
         getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
@@ -96,17 +91,6 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
     private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchBoxActionPerformed
-
-    private void lblWelcomePageBackgroundFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblWelcomePageBackgroundFocusGained
-        lblUserID.setVisible(false);
-        if(txtUserID.getText().isEmpty()){
-            lblUserID.setVisible(true);
-        }
-        lblPassword.setVisible(false);
-        if(txtPassword.getText().isEmpty()){
-            lblPassword.setVisible(true);
-        }
-    }//GEN-LAST:event_lblWelcomePageBackgroundFocusGained
 
     /**
      * @param args the command line arguments
