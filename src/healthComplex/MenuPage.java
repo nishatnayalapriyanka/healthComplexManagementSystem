@@ -69,6 +69,11 @@ public class MenuPage extends javax.swing.JFrame {
         btPersonalInformation.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btPersonalInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/personal information logo.png"))); // NOI18N
         btPersonalInformation.setText("Personal Informtion");
+        btPersonalInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPersonalInformationActionPerformed(evt);
+            }
+        });
         getContentPane().add(btPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 460, 70));
 
         btMedicalRecord.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -107,6 +112,10 @@ public class MenuPage extends javax.swing.JFrame {
         ManageInformationPage m=new ManageInformationPage();
         m.setVisible(true);
     }//GEN-LAST:event_btManageInformationActionPerformed
+
+    private void btPersonalInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPersonalInformationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btPersonalInformationActionPerformed
 
     /**
      * @param args the command line arguments
