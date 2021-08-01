@@ -28,11 +28,10 @@ public class WelcomePage extends javax.swing.JFrame {
         lblAboutUsMsg6 = new javax.swing.JLabel();
         lblAboutUsMsg7 = new javax.swing.JLabel();
         TbtAbotUs = new javax.swing.JToggleButton();
-        btNext = new javax.swing.JButton();
+        btLOgIn = new javax.swing.JButton();
         lblWelcomePageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblBangladeshHealthComplexMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
@@ -163,15 +162,15 @@ public class WelcomePage extends javax.swing.JFrame {
         });
         getContentPane().add(TbtAbotUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 170, 40));
 
-        btNext.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/next logo.png"))); // NOI18N
-        btNext.setText("Next");
-        btNext.addActionListener(new java.awt.event.ActionListener() {
+        btLOgIn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btLOgIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/login logo.png"))); // NOI18N
+        btLOgIn.setText("Log In");
+        btLOgIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNextActionPerformed(evt);
+                btLOgInActionPerformed(evt);
             }
         });
-        getContentPane().add(btNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 150, 40));
+        getContentPane().add(btLOgIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 150, 40));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background.jpg"))); // NOI18N
         getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
@@ -192,11 +191,11 @@ public class WelcomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TbtAbotUsActionPerformed
 
-    private void btNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNextActionPerformed
+    private void btLOgInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLOgInActionPerformed
         setVisible(false);
         LogInPage l = new LogInPage();
         l.setVisible(true);
-    }//GEN-LAST:event_btNextActionPerformed
+    }//GEN-LAST:event_btLOgInActionPerformed
 
     public static void main(String args[]) {
 
@@ -210,7 +209,7 @@ public class WelcomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton TbtAbotUs;
     private javax.swing.JButton btExit;
-    private javax.swing.JButton btNext;
+    private javax.swing.JButton btLOgIn;
     private javax.swing.JLabel lblAboutUsMsg;
     private javax.swing.JLabel lblAboutUsMsg1;
     private javax.swing.JLabel lblAboutUsMsg2;

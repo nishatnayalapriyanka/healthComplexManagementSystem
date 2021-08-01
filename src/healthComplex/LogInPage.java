@@ -6,6 +6,7 @@
 package healthComplex;
 
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
 public class LogInPage extends javax.swing.JFrame {
 
     /**
-     * Creates new form LogInPage1
+     * Creates new form LogInPage
      */
     public LogInPage() {
         initComponents();
@@ -129,7 +130,6 @@ public class LogInPage extends javax.swing.JFrame {
         getContentPane().add(txtUserID, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 300, 50));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
-        lblWelcomePageBackground.setNextFocusableComponent(txtUserID);
         lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 lblWelcomePageBackgroundFocusGained(evt);
@@ -140,17 +140,17 @@ public class LogInPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblEyeLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEyeLogoMouseClicked
-        lblEyeLogo.setVisible(false);
-        lblBlindLogo.setVisible(true);
-        txtPassword.setEchoChar('•');
-    }//GEN-LAST:event_lblEyeLogoMouseClicked
-
     private void lblBlindLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBlindLogoMouseClicked
         lblBlindLogo.setVisible(false);
         lblEyeLogo.setVisible(true);
         txtPassword.setEchoChar((char)0);
     }//GEN-LAST:event_lblBlindLogoMouseClicked
+
+    private void lblEyeLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEyeLogoMouseClicked
+        lblEyeLogo.setVisible(false);
+        lblBlindLogo.setVisible(true);
+        txtPassword.setEchoChar('•');
+    }//GEN-LAST:event_lblEyeLogoMouseClicked
 
     private void btLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogInActionPerformed
         if(txtUserID.getText().isEmpty()||txtPassword.getText().isEmpty()){
@@ -169,21 +169,22 @@ public class LogInPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btLogInActionPerformed
 
-    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
-        setVisible(false);
-        WelcomePage w = new WelcomePage();
-        w.setVisible(true);
-    }//GEN-LAST:event_btBackActionPerformed
-
     private void btResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btResetActionPerformed
+
         if(txtUserID.getText().isEmpty()&&txtPassword.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,"To reset fill the fields first..","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Fields are Empty...","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             txtUserID.setText("  ");
             txtPassword.setText(null);
         }
     }//GEN-LAST:event_btResetActionPerformed
+
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
+        setVisible(false);
+        WelcomePage w = new WelcomePage();
+        w.setVisible(true);
+    }//GEN-LAST:event_btBackActionPerformed
 
     private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
         lblPassword.setVisible(false);
@@ -235,7 +236,6 @@ public class LogInPage extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LogInPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

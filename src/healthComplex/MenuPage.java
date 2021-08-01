@@ -79,16 +79,31 @@ public class MenuPage extends javax.swing.JFrame {
         btMedicalRecord.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btMedicalRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/medical records logo.png"))); // NOI18N
         btMedicalRecord.setText("Medical Records");
+        btMedicalRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMedicalRecordActionPerformed(evt);
+            }
+        });
         getContentPane().add(btMedicalRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 460, 70));
 
         btOperationDetails.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btOperationDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/operation details logo.png"))); // NOI18N
         btOperationDetails.setText("Operation Details");
+        btOperationDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOperationDetailsActionPerformed(evt);
+            }
+        });
         getContentPane().add(btOperationDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 460, 70));
 
         btPaymentDetails.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btPaymentDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/payment details logo.png"))); // NOI18N
         btPaymentDetails.setText("Payment Details");
+        btPaymentDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPaymentDetailsActionPerformed(evt);
+            }
+        });
         getContentPane().add(btPaymentDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 460, 70));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
@@ -114,8 +129,28 @@ public class MenuPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btManageInformationActionPerformed
 
     private void btPersonalInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPersonalInformationActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        PersonalInfrmationPage p=new PersonalInfrmationPage();
+        p.setVisible(true);
     }//GEN-LAST:event_btPersonalInformationActionPerformed
+
+    private void btMedicalRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedicalRecordActionPerformed
+        setVisible(false);
+        MedicalRecordsPage m=new MedicalRecordsPage();
+        m.setVisible(true);
+    }//GEN-LAST:event_btMedicalRecordActionPerformed
+
+    private void btOperationDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOperationDetailsActionPerformed
+        setVisible(false);
+        OperationDetailsPage o=new OperationDetailsPage();
+        o.setVisible(true);
+    }//GEN-LAST:event_btOperationDetailsActionPerformed
+
+    private void btPaymentDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPaymentDetailsActionPerformed
+        setVisible(false);
+        PaymentDetailsPage p=new PaymentDetailsPage();
+        p.setVisible(true);
+    }//GEN-LAST:event_btPaymentDetailsActionPerformed
 
     /**
      * @param args the command line arguments

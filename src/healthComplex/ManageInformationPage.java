@@ -5,6 +5,9 @@
  */
 package healthComplex;
 
+import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.Scanner;
 /**
  *
  * @author User
@@ -16,8 +19,67 @@ public class ManageInformationPage extends javax.swing.JFrame {
      */
     public ManageInformationPage() {
         initComponents();
+        lblWelcomePageBackground.setFocusable(true);
+    }
+    //personal details
+    String ID;
+    String patientFirstName;
+    String patientLastName;
+    String age;
+    String gender;
+    String phoneNo;
+    String email;
+    //medical records
+    String problem;
+    String doctorFirstName;
+    String doctorLastName;
+    String medicine;
+    String wardNo;
+    //payment details
+    String doctorFess;
+    String medicineCost;
+    String wardCost;
+    String operationCost;
+    String paidAmount;
+    String totalCost;
+    String dueAmount;
+    //operation details
+    String operationName;
+    String surgeonFirstName;
+    String surgeonLastName;
+    String date;
+    
+    double doctorFessD;
+    double medicineCostD;
+    double wardCostD;
+    double operationCostD;
+    double paidAmountD;
+    double totalCostD;
+    double dueAmountD;
+    
+    String searchID;
+    
+    public void billCalculation(){
+        if(txtDoctorFees.getText().isEmpty()||txtMedicineCost.getText().isEmpty()||txtWardCost.getText().isEmpty()||txtOperationCost.getText().isEmpty()||txtPaidAmount.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Fill the previous fields...","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            doctorFessD=Double.parseDouble(txtDoctorFees.getText());
+            medicineCostD=Double.parseDouble(txtMedicineCost.getText());
+            wardCostD=Double.parseDouble(txtWardCost.getText());
+            operationCostD=Double.parseDouble(txtOperationCost.getText());
+            paidAmountD=Double.parseDouble(txtPaidAmount.getText());
+            totalCostD=doctorFessD+medicineCostD+wardCostD+operationCostD;
+            dueAmountD=totalCostD-paidAmountD;
+            txtTotalCost.setText(String.valueOf(totalCostD));
+            txtDueAmount.setText(String.valueOf(dueAmountD));
+        }  
     }
 
+    
+   
+
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,8 +91,8 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        lblMedicalRecord1 = new javax.swing.JLabel();
+        panelOperationDetails = new javax.swing.JPanel();
+        lblOperationDetails = new javax.swing.JLabel();
         lblOperationName = new javax.swing.JLabel();
         lblSurgeonsFirstName = new javax.swing.JLabel();
         lblSurgeonslastName = new javax.swing.JLabel();
@@ -38,23 +100,31 @@ public class ManageInformationPage extends javax.swing.JFrame {
         txtOperationName = new javax.swing.JTextField();
         txtSurgeonFirstName = new javax.swing.JTextField();
         txtSurgeonLastName = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        lblMedicalRecord2 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        panelPaymentDetails = new javax.swing.JPanel();
+        lblPaymentDetails = new javax.swing.JLabel();
         lblDoctorFees = new javax.swing.JLabel();
-        lblMedicineFees = new javax.swing.JLabel();
+        lblMedicineCost = new javax.swing.JLabel();
         lblWardCost = new javax.swing.JLabel();
         lblOperationCost = new javax.swing.JLabel();
         lblPaidAmount = new javax.swing.JLabel();
-        lblTotalCost = new javax.swing.JLabel();
-        lblDueAmount = new javax.swing.JLabel();
         txtDoctorFees = new javax.swing.JTextField();
-        txtMedicineFees = new javax.swing.JTextField();
-        txtWardCost = new javax.swing.JTextField();
+        txtMedicineCost = new javax.swing.JTextField();
         txtOperationCost = new javax.swing.JTextField();
         txtPaidAmount = new javax.swing.JTextField();
         txtTotalCost = new javax.swing.JTextField();
+        txtWardCost = new javax.swing.JTextField();
+        lblDueAmount = new javax.swing.JLabel();
+        lblTotalCost = new javax.swing.JLabel();
         txtDueAmount = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        lbltk = new javax.swing.JLabel();
+        lbltk1 = new javax.swing.JLabel();
+        lbltk2 = new javax.swing.JLabel();
+        lbltk3 = new javax.swing.JLabel();
+        lbltk4 = new javax.swing.JLabel();
+        lbltk5 = new javax.swing.JLabel();
+        lbltk6 = new javax.swing.JLabel();
+        panelMedicalRecord = new javax.swing.JPanel();
         lblMedicalRecord = new javax.swing.JLabel();
         lblDoctorFirstName = new javax.swing.JLabel();
         lblDoctorLastName = new javax.swing.JLabel();
@@ -81,7 +151,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtlAge = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
-        RbtMale = new javax.swing.JRadioButton();
+        rbtMale = new javax.swing.JRadioButton();
         rbtFemale = new javax.swing.JRadioButton();
         btSearchBox = new javax.swing.JButton();
         lblSearchBox = new javax.swing.JLabel();
@@ -101,21 +171,21 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         lblBangladeshHealthComplexMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         lblBangladeshHealthComplexMsg.setText("Bangladesh Health Complex");
-        getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 600, 100));
+        getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 600, 100));
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        panelOperationDetails.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblMedicalRecord1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        lblMedicalRecord1.setText("Operation Details");
+        lblOperationDetails.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        lblOperationDetails.setText("Operation Details");
 
         lblOperationName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblOperationName.setText("Operation Name");
 
         lblSurgeonsFirstName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblSurgeonsFirstName.setText("Surgeons First Name");
+        lblSurgeonsFirstName.setText("Surgeon's First Name");
 
         lblSurgeonslastName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblSurgeonslastName.setText("Surgeons Last Name");
+        lblSurgeonslastName.setText("Surgeon's Last Name");
 
         lblDate.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblDate.setText("Date");
@@ -126,67 +196,78 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         txtSurgeonLastName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        txtDate.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout panelOperationDetailsLayout = new javax.swing.GroupLayout(panelOperationDetails);
+        panelOperationDetails.setLayout(panelOperationDetailsLayout);
+        panelOperationDetailsLayout.setHorizontalGroup(
+            panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOperationDetailsLayout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(lblMedicalRecord1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDate, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblSurgeonslastName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSurgeonsFirstName)
-                                    .addComponent(lblOperationName))
+                        .addComponent(lblOperationDetails))
+                    .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOperationDetailsLayout.createSequentialGroup()
+                                .addComponent(lblSurgeonslastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtOperationName, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                                        .addComponent(lblOperationName)
+                                        .addGap(36, 36, 36))
+                                    .addComponent(lblSurgeonsFirstName, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtOperationName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                                .addComponent(lblDate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelOperationDetailsLayout.setVerticalGroup(
+            panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOperationDetailsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblMedicalRecord1)
+                .addComponent(lblOperationDetails)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOperationName)
                     .addComponent(txtOperationName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(10, 10, 10)
+                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSurgeonsFirstName)
-                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSurgeonFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblSurgeonslastName)
-                    .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDate)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelOperationDetailsLayout.createSequentialGroup()
+                        .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
+                        .addGap(1, 1, 1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 180));
+        getContentPane().add(panelOperationDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 310, 180));
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        panelPaymentDetails.setBackground(new java.awt.Color(0, 153, 153));
 
-        lblMedicalRecord2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        lblMedicalRecord2.setText("Payment Details");
+        lblPaymentDetails.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        lblPaymentDetails.setText("Payment Details");
 
         lblDoctorFees.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblDoctorFees.setText("Doctor Fees");
 
-        lblMedicineFees.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblMedicineFees.setText("Medicine Fees");
+        lblMedicineCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblMedicineCost.setText("Medicine Cost");
 
         lblWardCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblWardCost.setText("Ward Cost");
@@ -197,119 +278,168 @@ public class ManageInformationPage extends javax.swing.JFrame {
         lblPaidAmount.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblPaidAmount.setText("Paid Amount");
 
-        lblTotalCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblTotalCost.setText("Total Cost");
-
-        lblDueAmount.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblDueAmount.setText("Due Amount");
-
         txtDoctorFees.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        txtMedicineFees.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-
-        txtWardCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtMedicineCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         txtOperationCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         txtPaidAmount.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         txtTotalCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtTotalCost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTotalCostMousePressed(evt);
+            }
+        });
+
+        txtWardCost.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        lblDueAmount.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblDueAmount.setText("Due Amount");
+
+        lblTotalCost.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblTotalCost.setText("Total Cost");
 
         txtDueAmount.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtDueAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDueAmountMousePressed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        lbltk.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk.setText("tk");
+
+        lbltk1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk1.setText("tk");
+
+        lbltk2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk2.setText("tk");
+
+        lbltk3.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk3.setText("tk");
+
+        lbltk4.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk4.setText("tk");
+
+        lbltk5.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk5.setText("tk");
+
+        lbltk6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbltk6.setText("tk");
+
+        javax.swing.GroupLayout panelPaymentDetailsLayout = new javax.swing.GroupLayout(panelPaymentDetails);
+        panelPaymentDetails.setLayout(panelPaymentDetailsLayout);
+        panelPaymentDetailsLayout.setHorizontalGroup(
+            panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaymentDetailsLayout.createSequentialGroup()
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblDoctorFees))
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMedicineCost)))
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtDoctorFees, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbltk, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(txtMedicineCost, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbltk1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(20, Short.MAX_VALUE))))
+            .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(lblMedicalRecord2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPaymentDetails))
+                    .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblOperationCost)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtOperationCost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblWardCost)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtWardCost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMedicineFees)
-                                    .addComponent(lblDoctorFees))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtMedicineFees, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtDoctorFees)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblPaidAmount)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTotalCost)
-                                    .addComponent(lblDueAmount))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDueAmount)
-                                    .addComponent(txtTotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
+                                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblOperationCost)
+                                    .addComponent(lblWardCost)
+                                    .addComponent(lblDueAmount)
+                                    .addComponent(lblTotalCost))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtTotalCost, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(txtPaidAmount, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOperationCost, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtWardCost, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDueAmount)))
+                            .addComponent(lblPaidAmount))
+                        .addGap(12, 12, 12)
+                        .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbltk2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltk3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltk4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltk5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbltk6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelPaymentDetailsLayout.setVerticalGroup(
+            panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaymentDetailsLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(lblMedicalRecord2)
+                .addComponent(lblPaymentDetails)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDoctorFees)
-                    .addComponent(txtDoctorFees, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMedicineFees)
-                    .addComponent(txtMedicineFees, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDoctorFees, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMedicineCost)
+                    .addComponent(txtMedicineCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWardCost)
-                    .addComponent(txtWardCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtWardCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOperationCost)
-                    .addComponent(txtOperationCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtOperationCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPaidAmount)
-                    .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPaidAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotalCost)
-                    .addComponent(txtTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbltk5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPaymentDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDueAmount)
-                    .addComponent(txtDueAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(txtDueAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltk6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 310, 260));
+        getContentPane().add(panelPaymentDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 310, 260));
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        panelMedicalRecord.setBackground(new java.awt.Color(0, 153, 153));
 
         lblMedicalRecord.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         lblMedicalRecord.setText("Medical Record");
 
         lblDoctorFirstName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblDoctorFirstName.setText("Doctors First Name");
+        lblDoctorFirstName.setText("Doctor's First Name");
 
         lblDoctorLastName.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblDoctorLastName.setText("Doctors Last Name");
+        lblDoctorLastName.setText("Doctor's Last Name");
 
         lblProblem.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblProblem.setText("Problem");
@@ -330,70 +460,68 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         txtWardNo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblDoctorLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(lblProblem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelMedicalRecordLayout = new javax.swing.GroupLayout(panelMedicalRecord);
+        panelMedicalRecord.setLayout(panelMedicalRecordLayout);
+        panelMedicalRecordLayout.setHorizontalGroup(
+            panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                        .addComponent(lblMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(166, Short.MAX_VALUE))
+                    .addComponent(lblWardNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addComponent(lblMedicalRecord)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(lblMedicalRecord))
+                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblDoctorFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(lblDoctorLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelMedicalRecordLayout.setVerticalGroup(
+            panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMedicalRecordLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMedicalRecord)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDoctorFirstName)
-                    .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDoctorLastName))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProblem)
                     .addComponent(txtProblem, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDoctorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDoctorFirstName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctorLastName)
+                    .addComponent(txtDoctorLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMedicine)
                     .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(6, 6, 6)
+                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWardNo)
                     .addComponent(txtWardNo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 260));
+        getContentPane().add(panelMedicalRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 260));
 
         panelPersonalInformation.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -433,13 +561,23 @@ public class ManageInformationPage extends javax.swing.JFrame {
 
         txtPhoneNumber.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
-        RbtMale.setBackground(new java.awt.Color(0, 153, 153));
-        RbtMale.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        RbtMale.setText("Male");
+        rbtMale.setBackground(new java.awt.Color(0, 153, 153));
+        rbtMale.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        rbtMale.setText("Male");
+        rbtMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtMaleActionPerformed(evt);
+            }
+        });
 
         rbtFemale.setBackground(new java.awt.Color(0, 153, 153));
         rbtFemale.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         rbtFemale.setText("Female");
+        rbtFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtFemaleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPersonalInformationLayout = new javax.swing.GroupLayout(panelPersonalInformation);
         panelPersonalInformation.setLayout(panelPersonalInformationLayout);
@@ -467,7 +605,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                         .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RbtMale)
+                                .addComponent(rbtMale)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbtFemale))
                             .addGroup(panelPersonalInformationLayout.createSequentialGroup()
@@ -512,7 +650,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(RbtMale, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbtMale, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rbtFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -528,72 +666,100 @@ public class ManageInformationPage extends javax.swing.JFrame {
         getContentPane().add(panelPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 260));
 
         btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
-        getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 40, 40));
+        getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 40, 40));
 
         lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblSearchBox.setForeground(new java.awt.Color(153, 153, 153));
         lblSearchBox.setText("Patient's Id");
-        getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 130, 40));
+        getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 130, 40));
 
-        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBoxActionPerformed(evt);
+        txtSearchBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchBoxKeyTyped(evt);
             }
         });
-        getContentPane().add(txtSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 360, 40));
+        getContentPane().add(txtSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 360, 40));
 
         lblNoteMsg.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         lblNoteMsg.setText("Note : If you don't have any informatoin then fill none and zero for payment ");
         getContentPane().add(lblNoteMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         btAdd.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/add logo.png"))); // NOI18N
         btAdd.setText("Add");
         getContentPane().add(btAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 150, 50));
 
         btDelete.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/delete logo.png"))); // NOI18N
         btDelete.setText("Delete");
-        btDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btDeleteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 150, 50));
+        getContentPane().add(btDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 170, 50));
 
         btUpdate.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/update logo.png"))); // NOI18N
         btUpdate.setText("Update");
-        getContentPane().add(btUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 490, 150, 50));
+        getContentPane().add(btUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 160, 50));
 
         btClear.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        btClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/clear logo.png"))); // NOI18N
         btClear.setText("Clear");
-        btClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btClearActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, 150, 50));
+        getContentPane().add(btClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 150, 50));
 
         btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/back logo.png"))); // NOI18N
         btBack.setText("Back");
-        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 570, 170, 50));
+        btBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 150, 50));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
+        lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lblWelcomePageBackgroundFocusGained(evt);
+            }
+        });
         getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btDeleteActionPerformed
+    private void rbtMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtMaleActionPerformed
+        rbtFemale.setSelected(false);
+    }//GEN-LAST:event_rbtMaleActionPerformed
 
-    private void btClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btClearActionPerformed
+    private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
+        rbtMale.setSelected(false);
+    }//GEN-LAST:event_rbtFemaleActionPerformed
 
-    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBoxActionPerformed
+    private void txtTotalCostMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTotalCostMousePressed
+         billCalculation();
+    }//GEN-LAST:event_txtTotalCostMousePressed
+
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
+        setVisible(false);
+        MenuPage m = new MenuPage();
+        m.setVisible(true);
+    }//GEN-LAST:event_btBackActionPerformed
+
+    private void lblWelcomePageBackgroundFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblWelcomePageBackgroundFocusGained
+        lblSearchBox.setVisible(false);
+        if(txtSearchBox.getText().isEmpty()){
+            lblSearchBox.setVisible(true);
+        }
+    }//GEN-LAST:event_lblWelcomePageBackgroundFocusGained
+
+    private void txtSearchBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchBoxKeyTyped
+        lblSearchBox.setVisible(false);
+        if(txtSearchBox.getText().isEmpty()){
+            lblSearchBox.setVisible(true);
+        }
+    }//GEN-LAST:event_txtSearchBoxKeyTyped
+
+    private void txtDueAmountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDueAmountMousePressed
+        billCalculation();
+    }//GEN-LAST:event_txtDueAmountMousePressed
 
     /**
      * @param args the command line arguments
@@ -631,16 +797,12 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RbtMale;
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btBack;
     private javax.swing.JButton btClear;
     private javax.swing.JButton btDelete;
     private javax.swing.JButton btSearchBox;
     private javax.swing.JButton btUpdate;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBangladeshHealthComplexMsg;
@@ -653,16 +815,16 @@ public class ManageInformationPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblMedicalRecord;
-    private javax.swing.JLabel lblMedicalRecord1;
-    private javax.swing.JLabel lblMedicalRecord2;
     private javax.swing.JLabel lblMedicine;
-    private javax.swing.JLabel lblMedicineFees;
+    private javax.swing.JLabel lblMedicineCost;
     private javax.swing.JLabel lblNoteMsg;
     private javax.swing.JLabel lblOperationCost;
+    private javax.swing.JLabel lblOperationDetails;
     private javax.swing.JLabel lblOperationName;
     private javax.swing.JLabel lblPaidAmount;
     private javax.swing.JLabel lblPatientFirstName;
     private javax.swing.JLabel lblPatientLastName;
+    private javax.swing.JLabel lblPaymentDetails;
     private javax.swing.JLabel lblPersonalInformation;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblProblem;
@@ -673,8 +835,20 @@ public class ManageInformationPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblWardCost;
     private javax.swing.JLabel lblWardNo;
     private javax.swing.JLabel lblWelcomePageBackground;
+    private javax.swing.JLabel lbltk;
+    private javax.swing.JLabel lbltk1;
+    private javax.swing.JLabel lbltk2;
+    private javax.swing.JLabel lbltk3;
+    private javax.swing.JLabel lbltk4;
+    private javax.swing.JLabel lbltk5;
+    private javax.swing.JLabel lbltk6;
+    private javax.swing.JPanel panelMedicalRecord;
+    private javax.swing.JPanel panelOperationDetails;
+    private javax.swing.JPanel panelPaymentDetails;
     private javax.swing.JPanel panelPersonalInformation;
     private javax.swing.JRadioButton rbtFemale;
+    private javax.swing.JRadioButton rbtMale;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtDoctorFees;
     private javax.swing.JTextField txtDoctorFirstName;
     private javax.swing.JTextField txtDoctorLastName;
@@ -682,7 +856,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtMedicine;
-    private javax.swing.JTextField txtMedicineFees;
+    private javax.swing.JTextField txtMedicineCost;
     private javax.swing.JTextField txtOperationCost;
     private javax.swing.JTextField txtOperationName;
     private javax.swing.JTextField txtPaidAmount;

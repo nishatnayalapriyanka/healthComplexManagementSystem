@@ -27,37 +27,29 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSearchBox = new javax.swing.JLabel();
-        txtSearchBox = new javax.swing.JTextField();
         lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
-        btSearchBox = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPaymentlDetails = new javax.swing.JTable();
         panelTotalPaid = new javax.swing.JPanel();
+        lblTotalPaidMsg = new javax.swing.JLabel();
         lblTotalPaid = new javax.swing.JLabel();
-        btReset = new javax.swing.JButton();
         panelTotalDue = new javax.swing.JPanel();
+        lblTotalDueMsg = new javax.swing.JLabel();
         lblTotalDue = new javax.swing.JLabel();
         btBack = new javax.swing.JButton();
         panelTotalPayable = new javax.swing.JPanel();
+        lblTotalPayableMsg = new javax.swing.JLabel();
         lblTotalPayable = new javax.swing.JLabel();
+        lblPaymentsDetailsMsg = new javax.swing.JLabel();
+        lblPaymentDetailsLogo = new javax.swing.JLabel();
+        lblWelcomePageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblSearchBox.setForeground(new java.awt.Color(153, 153, 153));
-        lblSearchBox.setText("Patient's Id");
-
-        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBoxActionPerformed(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblBangladeshHealthComplexMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         lblBangladeshHealthComplexMsg.setText("Bangladesh Health Complex");
-
-        btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
+        getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 0, 630, 82));
 
         tblPaymentlDetails.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         tblPaymentlDetails.setModel(new javax.swing.table.DefaultTableModel(
@@ -65,140 +57,136 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Patients Id", "Doctor Fees", "Medicine Fees", "Ward Cost", "Operation Cost", "Paid Ammount", "Total Cost", "Due Ammount"
+                "Patient's Id", "Doctor Fees", "Medicine Fees", "Ward Cost", "Operation Cost", "Paid Ammount", "Total Cost", "Due Ammount"
             }
         ));
         jScrollPane1.setViewportView(tblPaymentlDetails);
 
-        panelTotalPaid.setBackground(new java.awt.Color(153, 153, 255));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 940, 250));
+
+        panelTotalPaid.setBackground(new java.awt.Color(204, 0, 204));
+
+        lblTotalPaidMsg.setBackground(new java.awt.Color(102, 0, 102));
+        lblTotalPaidMsg.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblTotalPaidMsg.setText("Total Paid");
+        lblTotalPaidMsg.setOpaque(true);
 
         lblTotalPaid.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblTotalPaid.setText("Total Paid");
 
         javax.swing.GroupLayout panelTotalPaidLayout = new javax.swing.GroupLayout(panelTotalPaid);
         panelTotalPaid.setLayout(panelTotalPaidLayout);
         panelTotalPaidLayout.setHorizontalGroup(
             panelTotalPaidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTotalPaid, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(lblTotalPaidMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(panelTotalPaidLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTotalPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTotalPaidLayout.setVerticalGroup(
             panelTotalPaidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTotalPaidLayout.createSequentialGroup()
+                .addComponent(lblTotalPaidMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTotalPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        btReset.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/reset logo.png"))); // NOI18N
-        btReset.setText("Reset");
+        getContentPane().add(panelTotalPaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 300, -1));
 
-        panelTotalDue.setBackground(new java.awt.Color(153, 153, 255));
+        panelTotalDue.setBackground(new java.awt.Color(255, 0, 51));
+
+        lblTotalDueMsg.setBackground(new java.awt.Color(204, 0, 0));
+        lblTotalDueMsg.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblTotalDueMsg.setText("Total Due");
+        lblTotalDueMsg.setOpaque(true);
 
         lblTotalDue.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblTotalDue.setText("Total Due");
 
         javax.swing.GroupLayout panelTotalDueLayout = new javax.swing.GroupLayout(panelTotalDue);
         panelTotalDue.setLayout(panelTotalDueLayout);
         panelTotalDueLayout.setHorizontalGroup(
             panelTotalDueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTotalDue, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(lblTotalDueMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalDueLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTotalDue, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         panelTotalDueLayout.setVerticalGroup(
             panelTotalDueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTotalDueLayout.createSequentialGroup()
+                .addComponent(lblTotalDueMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTotalDue, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
+
+        getContentPane().add(panelTotalDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, -1, -1));
 
         btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/back logo.png"))); // NOI18N
         btBack.setText("Back");
+        btBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 580, 170, 50));
 
         panelTotalPayable.setBackground(new java.awt.Color(153, 153, 255));
 
+        lblTotalPayableMsg.setBackground(new java.awt.Color(51, 51, 255));
+        lblTotalPayableMsg.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lblTotalPayableMsg.setText("Total Payable");
+        lblTotalPayableMsg.setOpaque(true);
+
         lblTotalPayable.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblTotalPayable.setText("Total Payable");
 
         javax.swing.GroupLayout panelTotalPayableLayout = new javax.swing.GroupLayout(panelTotalPayable);
         panelTotalPayable.setLayout(panelTotalPayableLayout);
         panelTotalPayableLayout.setHorizontalGroup(
             panelTotalPayableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTotalPayable, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(lblTotalPayableMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalPayableLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTotalPayable, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         panelTotalPayableLayout.setVerticalGroup(
             panelTotalPayableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTotalPayableLayout.createSequentialGroup()
+                .addComponent(lblTotalPayableMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTotalPayable, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lblSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(45, 45, 45)
-                            .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(panelTotalPayable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(47, 47, 47)
-                            .addComponent(panelTotalPaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(lblBangladeshHealthComplexMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelTotalDue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(265, 265, 265))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblBangladeshHealthComplexMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelTotalPayable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelTotalPaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(panelTotalDue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
+        getContentPane().add(panelTotalPayable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        lblPaymentsDetailsMsg.setBackground(new java.awt.Color(255, 255, 255));
+        lblPaymentsDetailsMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblPaymentsDetailsMsg.setText("Payment Details of Patients");
+        lblPaymentsDetailsMsg.setOpaque(true);
+        getContentPane().add(lblPaymentsDetailsMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 590, 70));
+
+        lblPaymentDetailsLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblPaymentDetailsLogo.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblPaymentDetailsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/payment details logo.png"))); // NOI18N
+        lblPaymentDetailsLogo.setOpaque(true);
+        getContentPane().add(lblPaymentDetailsLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 100, 70));
+
+        lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
+        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBoxActionPerformed
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
+        setVisible(false);
+        MenuPage m = new MenuPage();
+        m.setVisible(true);
+    }//GEN-LAST:event_btBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,18 +225,20 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
-    private javax.swing.JButton btReset;
-    private javax.swing.JButton btSearchBox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBangladeshHealthComplexMsg;
-    private javax.swing.JLabel lblSearchBox;
+    private javax.swing.JLabel lblPaymentDetailsLogo;
+    private javax.swing.JLabel lblPaymentsDetailsMsg;
     private javax.swing.JLabel lblTotalDue;
+    private javax.swing.JLabel lblTotalDueMsg;
     private javax.swing.JLabel lblTotalPaid;
+    private javax.swing.JLabel lblTotalPaidMsg;
     private javax.swing.JLabel lblTotalPayable;
+    private javax.swing.JLabel lblTotalPayableMsg;
+    private javax.swing.JLabel lblWelcomePageBackground;
     private javax.swing.JPanel panelTotalDue;
     private javax.swing.JPanel panelTotalPaid;
     private javax.swing.JPanel panelTotalPayable;
     private javax.swing.JTable tblPaymentlDetails;
-    private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 }

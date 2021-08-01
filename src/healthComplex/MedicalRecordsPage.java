@@ -5,6 +5,11 @@
  */
 package healthComplex;
 
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hp
@@ -17,6 +22,8 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
     public MedicalRecordsPage() {
         initComponents();
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,13 +35,11 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
     private void initComponents() {
 
         lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
-        lblSearchBox = new javax.swing.JLabel();
-        txtSearchBox = new javax.swing.JTextField();
-        btSearchBox = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMedicalRecord = new javax.swing.JTable();
-        btReset = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
+        lblPersonaInformationMsg = new javax.swing.JLabel();
+        lblMedicalDetailsLogo = new javax.swing.JLabel();
         lblWelcomePageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,43 +49,40 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
         lblBangladeshHealthComplexMsg.setText("Bangladesh Health Complex");
         getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 630, 100));
 
-        lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblSearchBox.setForeground(new java.awt.Color(153, 153, 153));
-        lblSearchBox.setText("Patient's Id");
-        getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 130, 40));
-
-        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBoxActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 360, 40));
-
-        btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
-        getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 40, 40));
-
-        tblMedicalRecord.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        tblMedicalRecord.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tblMedicalRecord.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Patients Id", "Doctors Name", "Problem", "Medicine", "Ward No"
+                "Patient's Id", "Problem", "Doctors Name", "Medicine", "Ward No"
             }
         ));
         jScrollPane1.setViewportView(tblMedicalRecord);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 930, 120));
-
-        btReset.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/reset logo.png"))); // NOI18N
-        btReset.setText("Reset");
-        getContentPane().add(btReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 170, 50));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 930, 340));
 
         btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/back logo.png"))); // NOI18N
         btBack.setText("Back");
-        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 570, 170, 50));
+        btBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 570, 170, 50));
+
+        lblPersonaInformationMsg.setBackground(new java.awt.Color(255, 255, 255));
+        lblPersonaInformationMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblPersonaInformationMsg.setText("Medical Details of Patients");
+        lblPersonaInformationMsg.setOpaque(true);
+        getContentPane().add(lblPersonaInformationMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 540, 70));
+
+        lblMedicalDetailsLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblMedicalDetailsLogo.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblMedicalDetailsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/medical records logo.png"))); // NOI18N
+        lblMedicalDetailsLogo.setOpaque(true);
+        getContentPane().add(lblMedicalDetailsLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, 70));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
         getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
@@ -88,9 +90,11 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBoxActionPerformed
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
+        setVisible(false);
+        MenuPage m = new MenuPage();
+        m.setVisible(true);
+    }//GEN-LAST:event_btBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,13 +133,11 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
-    private javax.swing.JButton btReset;
-    private javax.swing.JButton btSearchBox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBangladeshHealthComplexMsg;
-    private javax.swing.JLabel lblSearchBox;
+    private javax.swing.JLabel lblMedicalDetailsLogo;
+    private javax.swing.JLabel lblPersonaInformationMsg;
     private javax.swing.JLabel lblWelcomePageBackground;
     private javax.swing.JTable tblMedicalRecord;
-    private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 }

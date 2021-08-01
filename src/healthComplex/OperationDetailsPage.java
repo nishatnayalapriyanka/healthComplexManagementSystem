@@ -5,6 +5,11 @@
  */
 package healthComplex;
 
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -17,6 +22,8 @@ public class OperationDetailsPage extends javax.swing.JFrame {
     public OperationDetailsPage() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,90 +35,19 @@ public class OperationDetailsPage extends javax.swing.JFrame {
     private void initComponents() {
 
         lblBangladeshHealthComplexMsg = new javax.swing.JLabel();
-        panelNumberOfUncompletedOperation = new javax.swing.JPanel();
-        lblNumberOfUncomplitedOperation = new javax.swing.JLabel();
-        panelNumberOfOperation = new javax.swing.JPanel();
-        lblNumberOfOperation = new javax.swing.JLabel();
-        panelNumberOfCompletedOperation = new javax.swing.JPanel();
-        lblNumberOfComplitedOperation1 = new javax.swing.JLabel();
-        lblSearchBox = new javax.swing.JLabel();
-        txtSearchBox = new javax.swing.JTextField();
-        btSearchBox = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOperationlDetails = new javax.swing.JTable();
-        btReset = new javax.swing.JButton();
         btBack = new javax.swing.JButton();
+        lblOperationDetailsMsg = new javax.swing.JLabel();
+        lblOperationDetailsLogo = new javax.swing.JLabel();
+        lblWelcomePageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblBangladeshHealthComplexMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         lblBangladeshHealthComplexMsg.setText("Bangladesh Health Complex");
-
-        panelNumberOfUncompletedOperation.setBackground(new java.awt.Color(153, 153, 255));
-
-        lblNumberOfUncomplitedOperation.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblNumberOfUncomplitedOperation.setText("Number of operation which is uncompleted");
-
-        javax.swing.GroupLayout panelNumberOfUncompletedOperationLayout = new javax.swing.GroupLayout(panelNumberOfUncompletedOperation);
-        panelNumberOfUncompletedOperation.setLayout(panelNumberOfUncompletedOperationLayout);
-        panelNumberOfUncompletedOperationLayout.setHorizontalGroup(
-            panelNumberOfUncompletedOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNumberOfUncomplitedOperation, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-        panelNumberOfUncompletedOperationLayout.setVerticalGroup(
-            panelNumberOfUncompletedOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNumberOfUncompletedOperationLayout.createSequentialGroup()
-                .addComponent(lblNumberOfUncomplitedOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
-        );
-
-        panelNumberOfOperation.setBackground(new java.awt.Color(153, 153, 255));
-
-        lblNumberOfOperation.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblNumberOfOperation.setText("Total number of operation");
-
-        javax.swing.GroupLayout panelNumberOfOperationLayout = new javax.swing.GroupLayout(panelNumberOfOperation);
-        panelNumberOfOperation.setLayout(panelNumberOfOperationLayout);
-        panelNumberOfOperationLayout.setHorizontalGroup(
-            panelNumberOfOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNumberOfOperation, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-        panelNumberOfOperationLayout.setVerticalGroup(
-            panelNumberOfOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNumberOfOperationLayout.createSequentialGroup()
-                .addComponent(lblNumberOfOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
-        );
-
-        panelNumberOfCompletedOperation.setBackground(new java.awt.Color(153, 153, 255));
-
-        lblNumberOfComplitedOperation1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblNumberOfComplitedOperation1.setText("Number of operation which is completed");
-
-        javax.swing.GroupLayout panelNumberOfCompletedOperationLayout = new javax.swing.GroupLayout(panelNumberOfCompletedOperation);
-        panelNumberOfCompletedOperation.setLayout(panelNumberOfCompletedOperationLayout);
-        panelNumberOfCompletedOperationLayout.setHorizontalGroup(
-            panelNumberOfCompletedOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNumberOfComplitedOperation1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-        panelNumberOfCompletedOperationLayout.setVerticalGroup(
-            panelNumberOfCompletedOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNumberOfCompletedOperationLayout.createSequentialGroup()
-                .addComponent(lblNumberOfComplitedOperation1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
-        );
-
-        lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        lblSearchBox.setForeground(new java.awt.Color(153, 153, 153));
-        lblSearchBox.setText("Patient's Id");
-
-        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBoxActionPerformed(evt);
-            }
-        });
-
-        btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
+        getContentPane().add(lblBangladeshHealthComplexMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 0, 630, 82));
 
         tblOperationlDetails.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         tblOperationlDetails.setModel(new javax.swing.table.DefaultTableModel(
@@ -119,86 +55,46 @@ public class OperationDetailsPage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Patients Id", "Operation Name", "Surgeons Name", "Date"
+                "Patient's Id", "Operation Name", "Surgeon's Name", "Date"
             }
         ));
         jScrollPane1.setViewportView(tblOperationlDetails);
 
-        btReset.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        btReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/reset logo.png"))); // NOI18N
-        btReset.setText("Reset");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 930, 350));
 
         btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/back logo.png"))); // NOI18N
         btBack.setText("Back");
+        btBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 560, 170, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lblSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(btSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(panelNumberOfOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(45, 45, 45)
-                            .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(panelNumberOfCompletedOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(panelNumberOfUncompletedOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(lblBangladeshHealthComplexMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(459, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblBangladeshHealthComplexMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelNumberOfCompletedOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelNumberOfUncompletedOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(panelNumberOfOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
+        lblOperationDetailsMsg.setBackground(new java.awt.Color(255, 255, 255));
+        lblOperationDetailsMsg.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblOperationDetailsMsg.setText("Operation Details of Patients");
+        lblOperationDetailsMsg.setOpaque(true);
+        getContentPane().add(lblOperationDetailsMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 590, 70));
+
+        lblOperationDetailsLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblOperationDetailsLogo.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        lblOperationDetailsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/operation details logo.png"))); // NOI18N
+        lblOperationDetailsLogo.setOpaque(true);
+        getContentPane().add(lblOperationDetailsLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 100, 70));
+
+        lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
+        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBoxActionPerformed
+    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
+        setVisible(false);
+        MenuPage m = new MenuPage();
+        m.setVisible(true);
+    }//GEN-LAST:event_btBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,18 +134,11 @@ public class OperationDetailsPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
-    private javax.swing.JButton btReset;
-    private javax.swing.JButton btSearchBox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBangladeshHealthComplexMsg;
-    private javax.swing.JLabel lblNumberOfComplitedOperation1;
-    private javax.swing.JLabel lblNumberOfOperation;
-    private javax.swing.JLabel lblNumberOfUncomplitedOperation;
-    private javax.swing.JLabel lblSearchBox;
-    private javax.swing.JPanel panelNumberOfCompletedOperation;
-    private javax.swing.JPanel panelNumberOfOperation;
-    private javax.swing.JPanel panelNumberOfUncompletedOperation;
+    private javax.swing.JLabel lblOperationDetailsLogo;
+    private javax.swing.JLabel lblOperationDetailsMsg;
+    private javax.swing.JLabel lblWelcomePageBackground;
     private javax.swing.JTable tblOperationlDetails;
-    private javax.swing.JTextField txtSearchBox;
     // End of variables declaration//GEN-END:variables
 }
