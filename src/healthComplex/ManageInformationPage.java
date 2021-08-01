@@ -77,6 +77,136 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }
 
     
+        public void setValue(){
+        //personal details
+        ID = txtID.getText();
+        patientFirstName = txtPatientFirstName.getText();
+        patientLastName = txtPatientLastName.getText();
+        age = txtlAge.getText();
+        if(rbtMale.isSelected()){
+            gender = "Male";
+        }
+        if(rbtFemale.isSelected()){
+            gender = "Female";
+        }
+        phoneNo = txtPhoneNumber.getText();
+        email = txtEmail.getText();
+        //medical records
+        problem = txtProblem.getText();
+        doctorFirstName = txtDoctorFirstName.getText();
+        doctorLastName = txtDoctorLastName.getText();
+        medicine = txtMedicine.getText();
+        wardNo = txtWardNo.getText();
+        //payment details
+        doctorFess = txtDoctorFees.getText();
+        medicineCost = txtMedicineCost.getText();
+        wardCost = txtWardCost.getText();
+        operationCost = txtOperationCost.getText();
+        paidAmount = txtPaidAmount.getText();
+        totalCost = txtTotalCost.getText();
+        dueAmount = txtWardCost.getText();
+        //operation details
+        operationName = txtOperationName.getText();
+        surgeonFirstName = txtSurgeonFirstName.getText();
+        surgeonLastName = txtSurgeonLastName.getText();
+        date = txtDate.getText();    
+    }
+    
+    public int isFieldEmpty(){
+        if(txtID.getText().isEmpty()||txtPatientFirstName.getText().isEmpty()||
+        txtPatientLastName.getText().isEmpty()||txtlAge.getText().isEmpty()||
+        (rbtMale.isSelected()==false&&rbtFemale.isSelected()==false)||
+        txtPhoneNumber.getText().isEmpty()||txtEmail.getText().isEmpty()||
+        
+        txtProblem.getText().isEmpty()||txtDoctorFirstName.getText().isEmpty()||
+        txtDoctorLastName.getText().isEmpty()||txtMedicine.getText().isEmpty()||
+        txtWardNo.getText().isEmpty()||
+                
+        txtDoctorFees.getText().isEmpty()||txtMedicineCost.getText().isEmpty()||
+        txtWardCost.getText().isEmpty()||txtOperationCost.getText().isEmpty()||
+        txtPaidAmount.getText().isEmpty()||txtTotalCost.getText().isEmpty()||
+        txtWardCost.getText().isEmpty()||
+                
+        txtOperationName.getText().isEmpty()||txtSurgeonFirstName.getText().isEmpty()||
+        txtSurgeonLastName.getText().isEmpty()||txtDate.getText().isEmpty()){
+           return 0; 
+   
+        }
+        else{
+            return 1;
+        }  
+    }
+
+
+    public void clearField(){
+        //personal details
+        txtID.setText(null);
+        txtPatientFirstName.setText(null);
+        txtPatientLastName.setText(null);
+        txtlAge.setText(null);
+        rbtMale.setSelected(false);
+        rbtFemale.setSelected(false);
+        txtPhoneNumber.setText(null);
+        txtEmail.setText(null);
+        //medical records
+        txtProblem.setText(null);
+        txtDoctorFirstName.setText(null);
+        txtDoctorLastName.setText(null);
+        txtMedicine.setText(null);
+        txtWardNo.setText(null);
+        //payment details
+        txtDoctorFees.setText(null);
+        txtMedicineCost.setText(null);
+        txtWardCost.setText(null);
+        txtOperationCost.setText(null);
+        txtPaidAmount.setText(null);
+        txtTotalCost.setText(null);        
+        txtWardCost.setText(null);
+        //operation details
+        txtOperationName.setText(null);
+        txtSurgeonFirstName.setText(null);
+        txtSurgeonLastName.setText(null);       
+        txtDate.setText(null);       
+    }
+    
+    public void addInfo(){
+        setValue();
+        try{
+            FileWriter file = new FileWriter("Patient.txt",true);
+            //personal details
+            file.write(ID+"\t");
+            file.write(patientFirstName+"\t");
+            file.write(patientLastName+"\t");
+            file.write(age+"\t");
+            file.write(gender+"\t");
+            file.write(phoneNo+"\t");
+            file.write(email+"\t");
+            //medical records
+            file.write(problem+"\t");
+            file.write(doctorFirstName+"\t");
+            file.write(doctorLastName+"\t");
+            file.write(medicine+"\t");
+            file.write(wardNo+"\t");
+            //payment details
+            file.write(doctorFess+"\t");
+            file.write(medicineCost+"\t");
+            file.write(wardCost+"\t");
+            file.write(operationCost+"\t");
+            file.write(paidAmount+"\t");
+            file.write(totalCost+"\t");
+            file.write(dueAmount+"\t");
+            //operation details
+            file.write(operationName+"\t");
+            file.write(surgeonFirstName+"\t");
+            file.write(surgeonLastName+"\t");
+            file.write(date+"\n");
+            file.close();
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(this,"Operation failed , Try again...","Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    
    
 
  
@@ -228,7 +358,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                                 .addComponent(lblDate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelOperationDetailsLayout.setVerticalGroup(
             panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +379,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                     .addGroup(panelOperationDetailsLayout.createSequentialGroup()
                         .addComponent(txtSurgeonLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
                         .addGap(1, 1, 1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelOperationDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -465,14 +595,12 @@ public class ManageInformationPage extends javax.swing.JFrame {
         panelMedicalRecordLayout.setHorizontalGroup(
             panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMedicalRecordLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
-                        .addComponent(lblMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(166, Short.MAX_VALUE))
-                    .addComponent(lblWardNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(panelMedicalRecordLayout.createSequentialGroup()
                 .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMedicalRecordLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelMedicalRecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMedicine, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblWardNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelMedicalRecordLayout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(lblMedicalRecord))
@@ -588,7 +716,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                         .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPersonalInformationLayout.createSequentialGroup()
                         .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -660,12 +788,17 @@ public class ManageInformationPage extends javax.swing.JFrame {
                 .addGroup(panelPersonalInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 310, 260));
 
         btSearchBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Search Logo.png"))); // NOI18N
+        btSearchBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSearchBoxActionPerformed(evt);
+            }
+        });
         getContentPane().add(btSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 40, 40));
 
         lblSearchBox.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -673,6 +806,11 @@ public class ManageInformationPage extends javax.swing.JFrame {
         lblSearchBox.setText("Patient's Id");
         getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 130, 40));
 
+        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchBoxActionPerformed(evt);
+            }
+        });
         txtSearchBox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSearchBoxKeyTyped(evt);
@@ -687,6 +825,11 @@ public class ManageInformationPage extends javax.swing.JFrame {
         btAdd.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/add logo.png"))); // NOI18N
         btAdd.setText("Add");
+        btAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddActionPerformed(evt);
+            }
+        });
         getContentPane().add(btAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 150, 50));
 
         btDelete.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
@@ -702,6 +845,11 @@ public class ManageInformationPage extends javax.swing.JFrame {
         btClear.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/clear logo.png"))); // NOI18N
         btClear.setText("Clear");
+        btClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClearActionPerformed(evt);
+            }
+        });
         getContentPane().add(btClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 150, 50));
 
         btBack.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
@@ -760,6 +908,135 @@ public class ManageInformationPage extends javax.swing.JFrame {
     private void txtDueAmountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDueAmountMousePressed
         billCalculation();
     }//GEN-LAST:event_txtDueAmountMousePressed
+
+    private void btClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClearActionPerformed
+       
+if(txtID.getText().isEmpty()&&txtPatientFirstName.getText().isEmpty()&&
+        txtPatientLastName.getText().isEmpty()&&txtlAge.getText().isEmpty()&&
+        rbtMale.isSelected()==false&&rbtFemale.isSelected()==false&&
+        txtPhoneNumber.getText().isEmpty()&&txtEmail.getText().isEmpty()&&
+        
+        txtProblem.getText().isEmpty()&&txtDoctorFirstName.getText().isEmpty()&&
+        txtDoctorLastName.getText().isEmpty()&&txtMedicine.getText().isEmpty()&&
+        txtWardNo.getText().isEmpty()&&
+                
+        txtDoctorFees.getText().isEmpty()&&txtMedicineCost.getText().isEmpty()&&
+        txtWardCost.getText().isEmpty()&&txtOperationCost.getText().isEmpty()&&
+        txtPaidAmount.getText().isEmpty()&&txtTotalCost.getText().isEmpty()&&
+        txtWardCost.getText().isEmpty()&&
+                
+        txtOperationName.getText().isEmpty()&&txtSurgeonFirstName.getText().isEmpty()&&
+        txtSurgeonLastName.getText().isEmpty()&&txtDate.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"All fields are empty...","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            clearField();
+        }
+
+    }//GEN-LAST:event_btClearActionPerformed
+
+    private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
+      if(isFieldEmpty()>0){
+            addInfo();
+            JOptionPane.showMessageDialog(this,"Information added successfully..."," ",JOptionPane.INFORMATION_MESSAGE);
+            clearField();
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Fill all the fields...","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btAddActionPerformed
+
+    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchBoxActionPerformed
+
+    private void btSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSearchBoxActionPerformed
+    
+if(txtSearchBox.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Input patient's id first...","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            searchID = txtSearchBox.getText();
+            try{
+            File file = new File("Patient.txt");
+            Scanner fileS = new Scanner(file);
+            while(fileS.hasNext()){
+                //personal details
+                ID=fileS.next();
+                patientFirstName=fileS.next();
+                patientLastName=fileS.next();
+                age=fileS.next();
+                gender=fileS.next();
+                phoneNo=fileS.next();
+                email=fileS.next();        
+                //medical records
+                problem=fileS.next();
+                doctorFirstName=fileS.next();
+                doctorLastName=fileS.next();
+                medicine=fileS.next();
+                wardNo=fileS.next();
+                //payment details
+                doctorFess=fileS.next();
+                medicineCost=fileS.next();        
+                wardCost=fileS.next();
+                operationCost=fileS.next();
+                paidAmount=fileS.next();
+                totalCost=fileS.next();        
+                dueAmount=fileS.next();
+                //operation details
+                operationName=fileS.next();
+                surgeonFirstName=fileS.next();
+                surgeonLastName=fileS.next();  
+                date=fileS.next();
+                if(searchID.equalsIgnoreCase(ID)){
+                    //personal details
+                    txtID.setText(ID);
+                    txtPatientFirstName.setText(patientFirstName);
+                    txtPatientLastName.setText(patientLastName);
+                    txtlAge.setText(age);
+                    if(gender.equalsIgnoreCase("male")){
+                       rbtMale.setSelected(true); 
+                    }
+                    if(gender.equalsIgnoreCase("female")){
+                       rbtFemale.setSelected(true); 
+                    }
+                    txtPhoneNumber.setText(phoneNo);
+                    txtEmail.setText(email);
+                    //medical records
+                    txtProblem.setText(problem);
+                    txtDoctorFirstName.setText(doctorFirstName);
+                    txtDoctorLastName.setText(doctorLastName);
+                    txtMedicine.setText(medicine);
+                    txtWardNo.setText(wardNo);
+                    //payment details
+                    txtDoctorFees.setText(doctorFess);
+                    txtMedicineCost.setText(medicineCost);
+                    txtWardCost.setText(wardCost);
+                    txtOperationCost.setText(operationCost);
+                    txtPaidAmount.setText(paidAmount);
+                    txtTotalCost.setText(totalCost);        
+                    txtWardCost.setText(dueAmount);
+                    //operation details
+                    txtOperationName.setText(operationName);
+                    txtSurgeonFirstName.setText(surgeonFirstName);
+                    txtSurgeonLastName.setText(surgeonLastName);       
+                    txtDate.setText(date);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Information not found...","Error",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            fileS.close();
+
+            }catch(Exception e){
+                 JOptionPane.showMessageDialog(this,"Information not found...","Error",JOptionPane.ERROR_MESSAGE);
+            }
+            txtSearchBox.setText(null);
+        }
+
+
+    }//GEN-LAST:event_btSearchBoxActionPerformed
 
     /**
      * @param args the command line arguments
