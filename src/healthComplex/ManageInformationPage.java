@@ -76,9 +76,8 @@ public class ManageInformationPage extends javax.swing.JFrame {
         }  
     }
 
-    
-        public void setValue(){
-        //personal details
+    public void setValue(){
+            //personal details
         ID = txtID.getText();
         patientFirstName = txtPatientFirstName.getText();
         patientLastName = txtPatientLastName.getText();
@@ -109,7 +108,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
         operationName = txtOperationName.getText();
         surgeonFirstName = txtSurgeonFirstName.getText();
         surgeonLastName = txtSurgeonLastName.getText();
-        date = txtDate.getText();    
+        date = txtDate.getText();       
     }
     
     public int isFieldEmpty(){
@@ -806,11 +805,6 @@ public class ManageInformationPage extends javax.swing.JFrame {
         lblSearchBox.setText("Patient's Id");
         getContentPane().add(lblSearchBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 130, 40));
 
-        txtSearchBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchBoxActionPerformed(evt);
-            }
-        });
         txtSearchBox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSearchBoxKeyTyped(evt);
@@ -910,8 +904,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDueAmountMousePressed
 
     private void btClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClearActionPerformed
-       
-if(txtID.getText().isEmpty()&&txtPatientFirstName.getText().isEmpty()&&
+        if(txtID.getText().isEmpty()&&txtPatientFirstName.getText().isEmpty()&&
         txtPatientLastName.getText().isEmpty()&&txtlAge.getText().isEmpty()&&
         rbtMale.isSelected()==false&&rbtFemale.isSelected()==false&&
         txtPhoneNumber.getText().isEmpty()&&txtEmail.getText().isEmpty()&&
@@ -946,10 +939,6 @@ if(txtID.getText().isEmpty()&&txtPatientFirstName.getText().isEmpty()&&
         }
 
     }//GEN-LAST:event_btAddActionPerformed
-
-    private void txtSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchBoxActionPerformed
 
     private void btSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSearchBoxActionPerformed
     
