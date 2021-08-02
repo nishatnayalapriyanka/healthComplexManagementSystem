@@ -22,7 +22,7 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
     public PersonalInfrmationPage() {
         initComponents();
         lblWelcomePageBackground.setFocusable(true);
-    }
+    }//constructor
     
     //personal details
     String ID;
@@ -54,11 +54,11 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
     String date;
     
     public void showTable(){
-        DefaultTableModel pit = (DefaultTableModel)tblPersonalInformation.getModel();
+        DefaultTableModel pit = (DefaultTableModel)tblPersonalInformation.getModel();//creating obj of table
         try{
-            File file = new File("Patient.txt");
-            Scanner fileS = new Scanner(file);
-            while(fileS.hasNext()){
+            File file = new File("Patient.txt");//creating obj of file
+            Scanner fileS = new Scanner(file);//creating obj of file for reading the file
+            while(fileS.hasNext()){//condition untill file ends
                 //personal details
                 ID=fileS.next();
                 patientFirstName=fileS.next();
@@ -87,10 +87,11 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
                 surgeonFirstName=fileS.next();
                 surgeonLastName=fileS.next();  
                 date=fileS.next();
-                String patient[]={ID,patientName,age,gender,phoneNo,email};
-                pit.addRow(patient);
+                //reading file adding the info of file in strings
+                String patient[]={ID,patientName,age,gender,phoneNo,email};//string array
+                pit.addRow(patient);//adding rows in table
             }
-            fileS.close();
+            fileS.close();//close file
             }catch(Exception e){
                  JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
             }
@@ -162,7 +163,7 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
                 lblWelcomePageBackgroundFocusGained(evt);
             }
         });
-        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 650));
+        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

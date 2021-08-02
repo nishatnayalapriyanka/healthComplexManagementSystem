@@ -77,7 +77,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }
 
     public void setValue(){
-            //personal details
+        //personal details
         ID = txtID.getText();
         patientFirstName = txtPatientFirstName.getText();
         patientLastName = txtPatientLastName.getText();

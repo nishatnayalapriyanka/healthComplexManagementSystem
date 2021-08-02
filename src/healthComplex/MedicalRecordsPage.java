@@ -71,7 +71,7 @@ public class MedicalRecordsPage extends javax.swing.JFrame {
                 problem=fileS.next();
                 doctorFirstName=fileS.next();
                 doctorLastName=fileS.next();
-                doctorName=doctorFirstName+" "+doctorFirstName;
+                doctorName=doctorFirstName+" "+doctorLastName;
                 medicine=fileS.next();
                 wardNo=fileS.next();
                 //payment details
