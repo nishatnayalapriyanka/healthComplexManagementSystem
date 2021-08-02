@@ -941,8 +941,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btAddActionPerformed
 
     private void btSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSearchBoxActionPerformed
-    
-if(txtSearchBox.getText().isEmpty()){
+        if(txtSearchBox.getText().isEmpty()){
             JOptionPane.showMessageDialog(this,"Input patient's id first...","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
