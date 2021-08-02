@@ -21,8 +21,80 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
      */
     public PersonalInfrmationPage() {
         initComponents();
+        lblWelcomePageBackground.setFocusable(true);
     }
     
+    //personal details
+    String ID;
+    String patientFirstName;
+    String patientLastName;
+    String patientName;
+    String age;
+    String gender;
+    String phoneNo;
+    String email;
+    //medical records
+    String problem;
+    String doctorFirstName;
+    String doctorLastName;
+    String medicine;
+    String wardNo;
+    //payment details
+    String doctorFess;
+    String medicineCost;
+    String wardCost;
+    String operationCost;
+    String paidAmount;
+    String totalCost;
+    String dueAmount;
+    //operation details
+    String operationName;
+    String surgeonFirstName;
+    String surgeonLastName;
+    String date;
+    
+    public void showTable(){
+        DefaultTableModel pit = (DefaultTableModel)tblPersonalInformation.getModel();
+        try{
+            File file = new File("Patient.txt");
+            Scanner fileS = new Scanner(file);
+            while(fileS.hasNext()){
+                //personal details
+                ID=fileS.next();
+                patientFirstName=fileS.next();
+                patientLastName=fileS.next();
+                patientName=patientFirstName+" "+patientLastName;
+                age=fileS.next();
+                gender=fileS.next();
+                phoneNo=fileS.next();
+                email=fileS.next();        
+                //medical records
+                problem=fileS.next();
+                doctorFirstName=fileS.next();
+                doctorLastName=fileS.next();
+                medicine=fileS.next();
+                wardNo=fileS.next();
+                //payment details
+                doctorFess=fileS.next();
+                medicineCost=fileS.next();        
+                wardCost=fileS.next();
+                operationCost=fileS.next();
+                paidAmount=fileS.next();
+                totalCost=fileS.next();        
+                dueAmount=fileS.next();
+                //operation details
+                operationName=fileS.next();
+                surgeonFirstName=fileS.next();
+                surgeonLastName=fileS.next();  
+                date=fileS.next();
+                String patient[]={ID,patientName,age,gender,phoneNo,email};
+                pit.addRow(patient);
+            }
+            fileS.close();
+            }catch(Exception e){
+                 JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
+            }
+    }
   
 
     /**
@@ -85,7 +157,12 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
         getContentPane().add(lblPersonalInformationLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, 70));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
-        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
+        lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lblWelcomePageBackgroundFocusGained(evt);
+            }
+        });
+        getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,6 +172,10 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
         MenuPage m = new MenuPage();
         m.setVisible(true);
     }//GEN-LAST:event_btBackActionPerformed
+
+    private void lblWelcomePageBackgroundFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblWelcomePageBackgroundFocusGained
+        showTable();
+    }//GEN-LAST:event_lblWelcomePageBackgroundFocusGained
 
     /**
      * @param args the command line arguments
