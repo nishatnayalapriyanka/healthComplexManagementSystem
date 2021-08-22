@@ -5,6 +5,11 @@
  */
 package healthComplex;
 
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -16,6 +21,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
      */
     public PaymentDetailsPage() {
         initComponents();
+        lblWelcomePageBackground.setFocusable(true);
     }
 
     /**
@@ -177,6 +183,11 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         getContentPane().add(lblPaymentDetailsLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 100, 70));
 
         lblWelcomePageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/Background2.jpg"))); // NOI18N
+        lblWelcomePageBackground.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lblWelcomePageBackgroundFocusGained(evt);
+            }
+        });
         getContentPane().add(lblWelcomePageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
@@ -188,6 +199,101 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_btBackActionPerformed
 
+    private void lblWelcomePageBackgroundFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblWelcomePageBackgroundFocusGained
+        showTable();
+    }//GEN-LAST:event_lblWelcomePageBackgroundFocusGained
+
+    
+    //personal details
+    String ID;
+    String patientFirstName;
+    String patientLastName;
+    String age;
+    String gender;
+    String phoneNo;
+    String email;
+    //medical records
+    String problem;
+    String doctorFirstName;
+    String doctorLastName;
+    String medicine;
+    String wardNo;
+    //payment details
+    String doctorFess;
+    String medicineCost;
+    String wardCost;
+    String operationCost;
+    String paidAmount;
+    String totalCost;
+    String dueAmount;
+    //operation details
+    String operationName;
+    String surgeonFirstName;
+    String surgeonLastName;
+    String surgeonName;
+    String date;
+    
+    double paidAmountD;
+    double totalCostD;
+    double dueAmountD;
+    double totalPayable=0.0;
+    double totalPaid=0.0;
+    double totalDue=0.0;
+    
+    public void showTable(){
+        DefaultTableModel pdt = (DefaultTableModel)tblPaymentlDetails.getModel();
+        try{
+            File file = new File("Patient.txt");
+            Scanner fileS = new Scanner(file);
+            while(fileS.hasNext()){
+                //personal details
+                ID=fileS.next();
+                patientFirstName=fileS.next();
+                patientLastName=fileS.next();
+                age=fileS.next();
+                gender=fileS.next();
+                phoneNo=fileS.next();
+                email=fileS.next();        
+                //medical records
+                problem=fileS.next();
+                doctorFirstName=fileS.next();
+                doctorLastName=fileS.next();
+                medicine=fileS.next();
+                wardNo=fileS.next();
+                //payment details
+                doctorFess=fileS.next();
+                medicineCost=fileS.next();        
+                wardCost=fileS.next();
+                operationCost=fileS.next();
+                paidAmount=fileS.next();
+                totalCost=fileS.next();        
+                dueAmount=fileS.next();
+                //operation details
+                operationName=fileS.next();
+                surgeonFirstName=fileS.next();
+                surgeonLastName=fileS.next();
+                surgeonName=surgeonFirstName+" "+surgeonLastName;
+                date=fileS.next();
+                String patient[]={ID,doctorFess,medicineCost,wardCost,operationCost,paidAmount,totalCost,dueAmount};
+                pdt.addRow(patient);
+                totalCostD=Double.parseDouble(totalCost);
+                totalPayable=totalPayable+totalCostD;
+                lblTotalPayable.setText(String.valueOf(totalPayable)+"  tk");
+                dueAmountD=Double.parseDouble(dueAmount);
+                totalDue=totalDue+dueAmountD;
+                lblTotalDue.setText(String.valueOf(totalDue)+"  tk");
+                paidAmountD=Double.parseDouble(paidAmount);
+                totalPaid=totalPaid+paidAmountD;
+                lblTotalPaid.setText(String.valueOf(totalPaid)+"  tk");
+            }
+            fileS.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
+            setVisible(false);
+            MenuPage m = new MenuPage();
+            m.setVisible(true);
+        }
+    }
     /**
      * @param args the command line arguments
      */

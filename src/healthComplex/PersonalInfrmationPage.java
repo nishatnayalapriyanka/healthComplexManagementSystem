@@ -92,12 +92,12 @@ public class PersonalInfrmationPage extends javax.swing.JFrame {
                 pit.addRow(patient);//adding rows in table
             }
             fileS.close();//close file
-            }catch(Exception e){
-                 JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
-                 setVisible(false);
-                 MenuPage m = new MenuPage();
-                 m.setVisible(true);
-            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
+            setVisible(false);
+            MenuPage m = new MenuPage();
+            m.setVisible(true);
+        }
     }
   
 

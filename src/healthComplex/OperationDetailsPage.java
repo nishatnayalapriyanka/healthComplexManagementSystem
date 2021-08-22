@@ -91,12 +91,12 @@ public class OperationDetailsPage extends javax.swing.JFrame {
                 odt.addRow(patient);
             }
             fileS.close();
-            }catch(Exception e){
-                 JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
-                 setVisible(false);
-                 MenuPage m = new MenuPage();
-                 m.setVisible(true);
-            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
+            setVisible(false);
+            MenuPage m = new MenuPage();
+            m.setVisible(true);
+        }
     }
 
     /**

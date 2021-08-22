@@ -8,6 +8,8 @@ package healthComplex;
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author User
@@ -103,7 +105,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
         operationCost = txtOperationCost.getText();
         paidAmount = txtPaidAmount.getText();
         totalCost = txtTotalCost.getText();
-        dueAmount = txtWardCost.getText();
+        dueAmount = txtDueAmount.getText();
         //operation details
         operationName = txtOperationName.getText();
         surgeonFirstName = txtSurgeonFirstName.getText();
@@ -160,7 +162,7 @@ public class ManageInformationPage extends javax.swing.JFrame {
         txtOperationCost.setText(null);
         txtPaidAmount.setText(null);
         txtTotalCost.setText(null);        
-        txtWardCost.setText(null);
+        txtDueAmount.setText(null);
         //operation details
         txtOperationName.setText(null);
         txtSurgeonFirstName.setText(null);
@@ -205,6 +207,81 @@ public class ManageInformationPage extends javax.swing.JFrame {
         }
     }
 
+    public void createTempFile(){
+        searchID = txtID.getText();
+        try{
+            File file = new File("Patient.txt");
+            Scanner fileS = new Scanner(file);
+            while(fileS.hasNext()){
+                //personal detail
+                ID=fileS.next();
+                patientFirstName=fileS.next();
+                patientLastName=fileS.next();
+                age=fileS.next();
+                gender=fileS.next();
+                phoneNo=fileS.next();
+                email=fileS.next();        
+                //medical records
+                problem=fileS.next();   
+                doctorFirstName=fileS.next();
+                doctorLastName=fileS.next();
+                medicine=fileS.next();
+                wardNo=fileS.next();
+                //payment details
+                doctorFess=fileS.next();
+                medicineCost=fileS.next();        
+                wardCost=fileS.next();
+                operationCost=fileS.next();
+                paidAmount=fileS.next();
+                totalCost=fileS.next();                
+                dueAmount=fileS.next();
+                //operation details
+                operationName=fileS.next();
+                surgeonFirstName=fileS.next();
+                surgeonLastName=fileS.next();
+                date=fileS.next();
+                if(!searchID.equals(ID)){
+                    try{
+                        FileWriter fileW = new FileWriter("Temp.txt",true);
+                        //personal details
+                        fileW.write(ID+"\t");
+                        fileW.write(patientFirstName+"\t");
+                        fileW.write(patientLastName+"\t");
+                        fileW.write(age+"\t");
+                        fileW.write(gender+"\t");
+                        fileW.write(phoneNo+"\t");
+                        fileW.write(email+"\t");
+                        //medical records
+                        fileW.write(problem+"\t");
+                        fileW.write(doctorFirstName+"\t");
+                        fileW.write(doctorLastName+"\t");
+                        fileW.write(medicine+"\t");
+                        fileW.write(wardNo+"\t");
+                        //payment details
+                        fileW.write(doctorFess+"\t");
+                        fileW.write(medicineCost+"\t");
+                        fileW.write(wardCost+"\t");
+                        fileW.write(operationCost+"\t");
+                        fileW.write(paidAmount+"\t");
+                        fileW.write(totalCost+"\t");
+                        fileW.write(dueAmount+"\t");
+                        //operation details
+                        fileW.write(operationName+"\t");
+                        fileW.write(surgeonFirstName+"\t");
+                        fileW.write(surgeonLastName+"\t");
+                        fileW.write(date+"\n");
+                        fileW.close();
+                    }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(this,"An  error occur...","Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+            fileS.close();
+        }catch(Exception e){
+                 JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
+        }  
+    }
     
    
 
@@ -824,16 +901,26 @@ public class ManageInformationPage extends javax.swing.JFrame {
                 btAddActionPerformed(evt);
             }
         });
-        getContentPane().add(btAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 150, 50));
+        getContentPane().add(btAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 150, 50));
 
         btDelete.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/delete logo.png"))); // NOI18N
         btDelete.setText("Delete");
+        btDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 170, 50));
 
         btUpdate.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         btUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/healthComplex/update logo.png"))); // NOI18N
         btUpdate.setText("Update");
+        btUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 160, 50));
 
         btClear.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
@@ -929,15 +1016,14 @@ public class ManageInformationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btClearActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
-      if(isFieldEmpty()>0){
+        if(isFieldEmpty()>0){
             addInfo();
             JOptionPane.showMessageDialog(this,"Information added successfully..."," ",JOptionPane.INFORMATION_MESSAGE);
             clearField();
         }
         else{
-            JOptionPane.showMessageDialog(this,"Fill all the fields...","Warning",JOptionPane.WARNING_MESSAGE);
+           JOptionPane.showMessageDialog(this,"Fill all the fields...","Warning",JOptionPane.WARNING_MESSAGE);
         }
-
     }//GEN-LAST:event_btAddActionPerformed
 
     private void btSearchBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSearchBoxActionPerformed
@@ -946,85 +1032,122 @@ public class ManageInformationPage extends javax.swing.JFrame {
         }
         else{
             searchID = txtSearchBox.getText();
+            clearField();
             try{
-            File file = new File("Patient.txt");
-            Scanner fileS = new Scanner(file);
-            while(fileS.hasNext()){
-                //personal details
-                ID=fileS.next();
-                patientFirstName=fileS.next();
-                patientLastName=fileS.next();
-                age=fileS.next();
-                gender=fileS.next();
-                phoneNo=fileS.next();
-                email=fileS.next();        
-                //medical records
-                problem=fileS.next();
-                doctorFirstName=fileS.next();
-                doctorLastName=fileS.next();
-                medicine=fileS.next();
-                wardNo=fileS.next();
-                //payment details
-                doctorFess=fileS.next();
-                medicineCost=fileS.next();        
-                wardCost=fileS.next();
-                operationCost=fileS.next();
-                paidAmount=fileS.next();
-                totalCost=fileS.next();        
-                dueAmount=fileS.next();
-                //operation details
-                operationName=fileS.next();
-                surgeonFirstName=fileS.next();
-                surgeonLastName=fileS.next();  
-                date=fileS.next();
-                if(searchID.equalsIgnoreCase(ID)){
+                File file = new File("Patient.txt");
+                Scanner fileS = new Scanner(file);
+                while(fileS.hasNext()){
                     //personal details
-                    txtID.setText(ID);
-                    txtPatientFirstName.setText(patientFirstName);
-                    txtPatientLastName.setText(patientLastName);
-                    txtlAge.setText(age);
-                    if(gender.equalsIgnoreCase("male")){
-                       rbtMale.setSelected(true); 
-                    }
-                    if(gender.equalsIgnoreCase("female")){
-                       rbtFemale.setSelected(true); 
-                    }
-                    txtPhoneNumber.setText(phoneNo);
-                    txtEmail.setText(email);
+                    ID=fileS.next();
+                    patientFirstName=fileS.next();
+                    patientLastName=fileS.next();
+                    age=fileS.next();
+                    gender=fileS.next();
+                    phoneNo=fileS.next();
+                    email=fileS.next();        
                     //medical records
-                    txtProblem.setText(problem);
-                    txtDoctorFirstName.setText(doctorFirstName);
-                    txtDoctorLastName.setText(doctorLastName);
-                    txtMedicine.setText(medicine);
-                    txtWardNo.setText(wardNo);
+                    problem=fileS.next();
+                    doctorFirstName=fileS.next();
+                    doctorLastName=fileS.next();
+                    medicine=fileS.next();
+                    wardNo=fileS.next();
                     //payment details
-                    txtDoctorFees.setText(doctorFess);
-                    txtMedicineCost.setText(medicineCost);
-                    txtWardCost.setText(wardCost);
-                    txtOperationCost.setText(operationCost);
-                    txtPaidAmount.setText(paidAmount);
-                    txtTotalCost.setText(totalCost);        
-                    txtWardCost.setText(dueAmount);
+                    doctorFess=fileS.next();
+                    medicineCost=fileS.next();        
+                    wardCost=fileS.next();
+                    operationCost=fileS.next();
+                    paidAmount=fileS.next();
+                    totalCost=fileS.next();        
+                    dueAmount=fileS.next();
                     //operation details
-                    txtOperationName.setText(operationName);
-                    txtSurgeonFirstName.setText(surgeonFirstName);
-                    txtSurgeonLastName.setText(surgeonLastName);       
-                    txtDate.setText(date);
+                    operationName=fileS.next();
+                    surgeonFirstName=fileS.next();
+                    surgeonLastName=fileS.next();  
+                    date=fileS.next();
+                    if(searchID.equals(ID)){
+                        //personal details
+                        txtID.setText(ID);
+                        txtPatientFirstName.setText(patientFirstName);
+                        txtPatientLastName.setText(patientLastName);
+                        txtlAge.setText(age);
+                        if(gender.equalsIgnoreCase("male")){
+                            rbtMale.setSelected(true); 
+                        }
+                        if(gender.equalsIgnoreCase("female")){
+                            rbtFemale.setSelected(true); 
+                        }
+                        txtPhoneNumber.setText(phoneNo);
+                        txtEmail.setText(email);
+                        //medical records
+                        txtProblem.setText(problem);
+                        txtDoctorFirstName.setText(doctorFirstName);
+                        txtDoctorLastName.setText(doctorLastName);
+                        txtMedicine.setText(medicine);
+                        txtWardNo.setText(wardNo);
+                        //payment details
+                        txtDoctorFees.setText(doctorFess);
+                        txtMedicineCost.setText(medicineCost);
+                        txtWardCost.setText(wardCost);
+                        txtOperationCost.setText(operationCost);
+                        txtPaidAmount.setText(paidAmount);
+                        txtTotalCost.setText(totalCost);        
+                        txtDueAmount.setText(dueAmount);
+                        //operation details
+                        txtOperationName.setText(operationName);
+                        txtSurgeonFirstName.setText(surgeonFirstName);
+                        txtSurgeonLastName.setText(surgeonLastName);       
+                        txtDate.setText(date); 
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this,"Information not found...","Error",JOptionPane.ERROR_MESSAGE);
+                    }           
                 }
-                else{
-                    JOptionPane.showMessageDialog(this,"Information not found...","Error",JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            fileS.close();
-
+                fileS.close();
             }catch(Exception e){
-                 JOptionPane.showMessageDialog(this,"Information not found...","Error",JOptionPane.ERROR_MESSAGE);
+                 JOptionPane.showMessageDialog(this,"No information added yet...","Error",JOptionPane.ERROR_MESSAGE);
             }
             txtSearchBox.setText(null);
         }
-
-
     }//GEN-LAST:event_btSearchBoxActionPerformed
+
+    private void btDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeleteActionPerformed
+        if(isFieldEmpty()>0){
+            int option=JOptionPane.showConfirmDialog(null,"Are you sure ? ","Delete",JOptionPane.YES_NO_OPTION);
+            if(option==0){
+                createTempFile();
+                File file = new File("Patient.txt");
+                file.delete();
+                File tempFile = new File("Temp.txt");
+                File newFile = new File("Patient.txt");
+                tempFile.renameTo(newFile);
+                JOptionPane.showMessageDialog(this,"Information Deleted Succesfully...");
+                clearField();
+            }
+        }
+        else{
+           JOptionPane.showMessageDialog(this,"Search information first...","Warning",JOptionPane.WARNING_MESSAGE); 
+        }
+    }//GEN-LAST:event_btDeleteActionPerformed
+
+    private void btUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUpdateActionPerformed
+        if(isFieldEmpty()>0){
+            int option=JOptionPane.showConfirmDialog(null,"Are you sure ? ","Delete",JOptionPane.YES_NO_OPTION);
+            if(option==0){
+                createTempFile();
+                File file = new File("Patient.txt");
+                file.delete();
+                File tempFile = new File("Temp.txt");
+                File newFile = new File("Patient.txt");
+                tempFile.renameTo(newFile);
+                addInfo();
+                JOptionPane.showMessageDialog(this,"Information Updated Succesfully...");
+                clearField();
+            }
+        }
+        else{
+           JOptionPane.showMessageDialog(this,"Search information first...","Warning",JOptionPane.WARNING_MESSAGE); 
+        }
+    }//GEN-LAST:event_btUpdateActionPerformed
 
     /**
      * @param args the command line arguments

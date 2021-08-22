@@ -1,6 +1,8 @@
 
 package healthComplex;
 
+import javax.swing.JOptionPane;
+
 public class WelcomePage extends javax.swing.JFrame {
 
     public WelcomePage() {
@@ -179,7 +181,11 @@ public class WelcomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExitActionPerformed
-        setVisible(false);
+        int option=JOptionPane.showConfirmDialog(null,"Are you sure ? ","Log Out",JOptionPane.YES_NO_OPTION);
+        if(option==0){
+            JOptionPane.showMessageDialog(this,"Thank you for visiting us..."," ",JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
+        }
     }//GEN-LAST:event_btExitActionPerformed
 
     private void TbtAbotUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TbtAbotUsActionPerformed
